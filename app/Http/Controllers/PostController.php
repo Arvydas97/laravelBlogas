@@ -27,19 +27,25 @@ class PostController extends BaseController
     public function store(Request $request){
      $validate=$request->validate([
          'title'=>'required',
-         'description'=>'required'
+         'description'=>'required',
+         'img'=>'image|nullable|max:2048'
      ]);
 
-
-
-
+     $imagePath = $request->file('img')->store('public/images');
 
      $post = Post::create([
          'title'=>request('title'),
-         'description'=>request('description')
+         'description'=>request('description'),
+         'img'=>$imagePath
      ]);
 
      return redirect('/');
 
     }
+    public function show(Post $post){
+        return view('pages.post', compact('post'));
+    }
+
+
+
 }

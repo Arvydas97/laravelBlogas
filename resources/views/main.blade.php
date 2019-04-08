@@ -31,11 +31,13 @@
 </section>
 <!-- END section -->
 
-@if(Request::url() !== '/add-post')
+
+@if (\Request::is('/'))
     <section class="site-section py-sm">
         @include('pages/lifestyle')
     </section>
 @endif
+
 
 
 

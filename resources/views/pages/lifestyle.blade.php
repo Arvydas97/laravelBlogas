@@ -9,7 +9,7 @@
             <div class="row">
                 @foreach($posts as $post)
                     <div class="col-md-6">
-                        <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                        <a href="post/{{$post->id}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
                             <img src="images/img_5.jpg" alt="Image placeholder">
                             <div class="blog-content-body">
                                 <div class="post-meta">
