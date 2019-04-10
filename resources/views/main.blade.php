@@ -29,7 +29,10 @@
 <section class="site-section pt-5">
   @yield('content')
 </section>
-<!-- END section -->
+
+<div class="container">
+    @yield('post-action')
+</div>
 
 
 @if (\Request::is('/'))

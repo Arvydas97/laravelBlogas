@@ -10,14 +10,13 @@
                 @foreach($posts as $post)
                     <div class="col-md-6">
                         <a href="post/{{$post->id}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                            <img src="images/img_5.jpg" alt="Image placeholder">
+                            <img src="/storage/app/{{$post->img}}" alt="Image placeholder">
                             <div class="blog-content-body">
                                 <div class="post-meta">
-                                    <span class="category">{{$post->title}}</span>
-                                    <span class="mr-2">asdasd</span> &bullet;
-                                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                    <span class="category">Kategorija</span>
                                 </div>
-                                <h2>{{$post->description}}</h2>
+                                <h1>{{$post->title}}</h1>
+                                <h5>{{$post->description}}</h5>
                             </div>
                         </a>
                     </div>

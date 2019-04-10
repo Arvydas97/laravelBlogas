@@ -17,7 +17,7 @@
     <form method="post" action="/store" enctype="multipart/form-data" class="text-center">
         @csrf
         <fieldset>
-            <legend>Blogo registravimas</legend>
+            <legend>Posto registravimas</legend>
             Title<br>
             <input type="text" name="title" value=""><br>
             Description<br>
