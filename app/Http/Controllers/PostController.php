@@ -8,21 +8,25 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Post;
-
+use App\Category;
 class PostController extends BaseController
 {
     public function index(){
         $posts=Post::all(); //gaunu duom
 
+        $categories=Category::all(); //gaunu duom
 
-        return view('pages.home', compact('posts'));//siunciu sablona
-    }
-    public function createPost(){
-        return view('pages.forma');
+
+        //return view('pages.forma', compact('categories'));//siunciu sablona
+        return view('pages.home', compact('posts','categories'));
+
     }
 
-    public function create(){
-        return view('pages.create-post');
+
+
+    public function create(Category $categories ){
+
+        return view('pages.forma')->with('post', $categories);
     }
     public function store(Request $request){
      $validate=$request->validate([
@@ -44,6 +48,9 @@ class PostController extends BaseController
 
      return redirect('/');
     }
+
+
+
     public function show(Post $post){
         return view('pages.post', compact('post'));
     }
@@ -80,14 +87,14 @@ class PostController extends BaseController
             'img' => 'image|nullable|max:1999'
         ]);
 
-//        if($request->hasFile('post-image')){
-//            File::delete('storage/posts-images/'.$post->img);
+  //      if($request->hasFile('img')){
+//           File::delete('storage/app/'.$post->img);
 //
-//            $filenameWithExt = $request->file('post-image')->getClientOriginalName(); // Full file name
+//            $filenameWithExt = $request->file('image')->getClientOriginalName(); // Full file name
 //            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME); //File name without extension
-//            $extension = $request->file('post-image')->guessClientExtension(); //Only file extesion name
+//            $extension = $request->file('image')->guessClientExtension(); //Only file extesion name
 //            $fileName = $filename.'_'.time().'.'.$extension; //Concatenated file name and extension with custom naming extensions
-//        }
+//       }
 
         // Image path ready to upload
         //$request->file('post-image')->storeAs('public/posts-images', $fileName);

@@ -24,8 +24,16 @@
 
 <!--  header -->
 @include('partials/header')
-
-
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Kategorija <span class="caret"></span>
+        <ul class="dropdown-menu">
+        @foreach($categories as $category)
+                <imput><a href="#">{{$category->name}}</a></imput>
+            @endforeach
+        </ul>
+    </button>
+</div>
 <section class="site-section pt-5">
   @yield('content')
 </section>
@@ -41,6 +49,12 @@
     </section>
 @endif
 
+
+@if (\Request::is('/add-category'))
+    <section class="site-section py-sm">
+        @include('content')
+    </section>
+@endif
 
 
 

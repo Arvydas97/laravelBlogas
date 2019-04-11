@@ -12,8 +12,11 @@
 */
 
 Route::get('/', 'PostController@index');
-Route::get('/add-post', 'PostController@createPost');
+Route::get('/forma/{category}', 'PostController@create');
+Route::get('/add-category', 'CategoryController@createCategory');
+
 Route::post('/store', 'PostController@store');
+Route::post('/storeCategory','CategoryController@storeCategory');
 Route::get('/post/{post}', 'PostController@show');
 
 Route::get('/post/{id}/edit', 'PostController@edit');

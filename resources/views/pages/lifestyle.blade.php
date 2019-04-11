@@ -13,7 +13,7 @@
                             <img src="/storage/app/{{$post->img}}" alt="Image placeholder">
                             <div class="blog-content-body">
                                 <div class="post-meta">
-                                    <span class="category">Kategorija</span>
+                                    <span class="category">{{$post->cat_id}}</span>
                                 </div>
                                 <h1>{{$post->title}}</h1>
                                 <h5>{{$post->description}}</h5>
