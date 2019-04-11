@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PostController@index');
-Route::get('/forma/{category}', 'PostController@create');
+Route::get('/forma', 'PostController@create');
 Route::get('/add-category', 'CategoryController@createCategory');
 
 Route::post('/store', 'PostController@store');

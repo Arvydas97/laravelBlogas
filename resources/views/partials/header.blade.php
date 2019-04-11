@@ -63,7 +63,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="forma/{{$categories}}">Add post</a>
+                        <a class="nav-link" href="forma/">Add post</a>
                     </li>
                 </ul>
 

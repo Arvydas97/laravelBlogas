@@ -24,9 +24,9 @@ class PostController extends BaseController
 
 
 
-    public function create(Category $categories ){
-
-        return view('pages.forma')->with('post', $categories);
+    public function create( ){
+        $categories=Category::all();
+        return view('pages.forma',compact( 'categories'));
     }
     public function store(Request $request){
      $validate=$request->validate([
