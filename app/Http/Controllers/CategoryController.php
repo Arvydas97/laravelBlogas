@@ -4,6 +4,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
 
 class CategoryController extends BaseController
 {
@@ -16,18 +17,37 @@ class CategoryController extends BaseController
 //    }
 
     public function storeCategory(Request $request){
-        $validate=$request->validate([
+
+       $request->validate([
             'name'=>'required',
         ]);
 
 
-        $post = Category::create([
+       Category::create([
             'name'=>request('name'),
         ]);
 
-        return redirect('/');
+        return redirect('/add-category')
+            ->with('success', 'Category created!');
     }
     public function createCategory(){
-        return view('pages.add-category');
+        $categories = Category::all();
+        return view('pages.add-category')
+            ->with("categories",$categories );
+    }
+
+    public function show($id){
+        $posts = Post::where("cat_id", "=", $id)->get();
+        //$post = Post::find($id);
+        return view('category.{id}', compact('posts'));
+    }
+    public function showByID($id){
+        $categories=Category::all();
+        $posts = Post::where("cat_id", "=", $id)
+            ->orderBy('created_at','desc')
+            ->get() ;
+        return view('pages.category')
+            ->with('posts', $posts)
+            ->with("categories",$categories);
     }
 }

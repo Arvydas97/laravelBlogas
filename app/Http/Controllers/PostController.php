@@ -12,27 +12,27 @@ use App\Category;
 class PostController extends BaseController
 {
     public function index(){
-        $posts=Post::all(); //gaunu duom
-
+        $posts=Post::orderBy('created_at', 'desc')->paginate(4); //gaunu duom
         $categories=Category::all(); //gaunu duom
 
-
         //return view('pages.forma', compact('categories'));//siunciu sablona
-        return view('pages.home', compact('posts','categories'));
-
+        return view('pages.home')
+            ->with('posts', $posts)
+            ->with("categories",$categories);
     }
 
 
 
     public function create( ){
         $categories=Category::all();
-        return view('pages.forma',compact( 'categories'));
+        return view('pages.forma')
+            ->with("categories",$categories);
     }
     public function store(Request $request){
-     $validate=$request->validate([
+     $request->validate([
          'title'=>'required',
          'description'=>'required',
-         'img'=>'image|nullable|max:2048'
+         'img'=>'image|nullable|max:2048',
      ]);
 
         $imagePath="";
@@ -40,45 +40,51 @@ class PostController extends BaseController
          $imagePath = $request->file('img')->store('public/images');
      }
 
-     $post = Post::create([
+      Post::create([
          'title'=>request('title'),
          'description'=>request('description'),
-         'img'=>$imagePath
+         'img'=>$imagePath,
+         'cat_id'=>request('cat_id')
+
      ]);
 
-     return redirect('/');
+     return redirect('/forma')
+         ->with('success', 'Post created!');
     }
 
 
 
-    public function show(Post $post){
-        return view('pages.post', compact('post'));
+    public function show($id){
+        $categories=Category::all();
+        $post = Post::find($id);
+        return view('pages.post')
+            ->with('post', $post)
+            ->with("categories",$categories);
+    }
+    public function showByID($id){
+        $categories=Category::all();
+        $posts = Post::where("cat_id", "=", $id)
+            ->orderBy('created_at','desc')
+            ->get() ;
+        return view('pages.category')
+            ->with('posts', $posts)
+            ->with("categories",$categories);
     }
 
 
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
+        $categories=Category::all();
         $post = Post::find($id);
-        return view('posts.edit-post')->with('post', $post);
+        return view('posts.edit-post')
+            ->with('post', $post)
+            ->with("categories",$categories);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
+
         $post = Post::find($id);
 
         $request->validate([

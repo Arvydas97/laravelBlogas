@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="{!! asset('fonts/ionicons/css/ionicons.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('fonts/fontawesome/css/font-awesome.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('fonts/flaticon/font/flaticon.css') !!}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/custom.css') !!}">
 </head>
 <body>
 
@@ -24,23 +26,15 @@
 
 <!--  header -->
 @include('partials/header')
-<div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Kategorija <span class="caret"></span>
-        <ul class="dropdown-menu">
-        @foreach($categories as $category)
-                <imput><a href="#">{{$category->name}}</a></imput>
-            @endforeach
-        </ul>
-    </button>
-</div>
+
+@include('pages.error')
 <section class="site-section pt-5">
   @yield('content')
 </section>
 
-<div class="container">
-    @yield('post-action')
-</div>
+{{--<div class="container">--}}
+    {{--@yield('post-action')--}}
+{{--</div>--}}
 
 
 @if (\Request::is('/'))
@@ -50,11 +44,12 @@
 @endif
 
 
-@if (\Request::is('/add-category'))
-    <section class="site-section py-sm">
-        @include('content')
-    </section>
-@endif
+{{--@if (\Request::is('/add-category'))--}}
+    {{--<section class="site-section py-sm">--}}
+        {{--@include('content')--}}
+    {{--</section>--}}
+{{--@endif--}}
+
 
 
 
@@ -70,8 +65,10 @@
 <script src="{!! asset('js/owl.carousel.min.js') !!}"></script>
 <script src="{!! asset('js/jquery.waypoints.min.js') !!}"></script>
 <script src="{!! asset('js/jquery.stellar.min.js') !!}"></script>
-
-
 <script src="{!! asset('js/main.js') !!}"></script>
+<script src="{!! asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') !!}"></script>
+<script>
+    CKEDITOR.replace( 'article-ckeditor' );
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('post-action')
+@section('content')
 
 
 <div class="m-4">
@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="description-field">Description</label>
-            <textarea class="form-control" name="description" id="post-body"
+            <textarea class="form-control"  id="article-ckeditor" name="description" id="post-body"
                       placeholder="Body">{{$post->description}}</textarea>
         </div>
         <div class="form-group">
