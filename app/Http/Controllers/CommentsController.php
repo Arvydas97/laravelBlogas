@@ -35,10 +35,10 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
+        $request->validate([
             'name' =>'required|max:50',
             'comment' =>'required|max:350|min:5'
-        ));
+        ]);
         $postoId=request('post_id');
         Comment::create([
             'name'=>request('name'),

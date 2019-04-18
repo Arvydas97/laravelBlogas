@@ -8,7 +8,9 @@ use App\Post;
 
 class CategoryController extends BaseController
 {
-
+    public function _construct(){
+        $this->middleware('auth')->only('storeCategory', 'createCategory');
+    }
 //    public function index(){
 //        $categories=Category::all(); //gaunu duom
 //

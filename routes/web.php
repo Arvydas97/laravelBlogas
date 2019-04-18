@@ -26,3 +26,10 @@ Route::post('/storeCategory','CategoryController@storeCategory');
 
 //Comments
 Route::post('/add-comment', 'CommentsController@store');
+
+//Auth
+Auth::routes();
+Route::get('/home', 'DashboardController@index')->name('home');
+
+//Admin
+Route::get('/dashboard','DashboardController@index');

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'description', 'img','cat_id'];
+    protected $fillable = ['title', 'description', 'img','cat_id','user_id'];
 
     public function category()
     {
@@ -18,5 +18,9 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

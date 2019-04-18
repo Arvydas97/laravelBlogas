@@ -21,6 +21,7 @@
                     @endforeach
                 </select><br><br>
             </div>
+            <input name="user_id" value="{{$user->id}}" type="hidden" >
             <input name="img" type="file" ><br><br>
             <input type="submit" value="Submit">
         </fieldset>

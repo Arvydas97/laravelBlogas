@@ -12,7 +12,7 @@
                     @foreach($posts as $post)
                         <div class="col-md-6">
                             <a href="post/{{$post->id}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="/storage/app/{{$post->img}}" alt="Image placeholder">
+                                <img src="{{$post->img}}" alt="Image placeholder">
                                 <div class="blog-content-body">
                                     <div class="post-meta">
                                         @foreach($categories as $category)
