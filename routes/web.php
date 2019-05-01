@@ -12,7 +12,10 @@
 */
 //Posts
 Route::get('/', 'PostController@index');
-Route::get('/forma', 'PostController@create');
+
+
+Route::get('/forma', 'PostController@create')->middleware('auth');
+
 Route::post('/store', 'PostController@store');
 Route::get('/post/{post}', 'PostController@show');
 Route::get('/post/{id}/edit', 'PostController@edit');
@@ -21,7 +24,7 @@ Route::delete('/post/{id}/destroy', 'PostController@destroy');
 Route::get('/category/{id}', 'PostController@showByID');
 
 //Categories
-Route::get('/add-category', 'CategoryController@createCategory');
+Route::get('/add-category', 'CategoryController@createCategory')->middleware('auth');
 Route::post('/storeCategory','CategoryController@storeCategory');
 
 //Comments

@@ -2,25 +2,6 @@
     <div class="top-bar">
         <div class="container">
             <div class="row">
-                <div class="col-9 social">
-                    <a href="#"><span class="fa fa-twitter"></span></a>
-                    <a href="#"><span class="fa fa-facebook"></span></a>
-                    <a href="#"><span class="fa fa-instagram"></span></a>
-                    <a href="#"><span class="fa fa-youtube-play"></span></a>
-                    <a href="#"><span class="fa fa-vimeo"></span></a>
-                    <a href="#"><span class="fa fa-snapchat"></span></a>
-                </div>
-                <div class="col-3 search-top">
-                    <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                    <form action="#" class="search-top-form">
-                        <span class="icon fa fa-search"></span>
-                        <input type="text" id="s" placeholder="Type keyword to search...">
-                    </form>
-                </div>
-
-
-
-
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -58,15 +39,7 @@
                         </li>
                     @endguest
                 </ul>
-
-
-
             </div>
-
-
-
-
-
         </div>
 
     </div>
@@ -89,16 +62,6 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-
-                        </div>
-
-                    </li>
-
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">

@@ -1,6 +1,7 @@
 @extends('main')
 
 @section('content')
+
         <form method="post" action="/store" enctype="multipart/form-data" class="text-center">
         @csrf
         <fieldset>

@@ -22,7 +22,7 @@
                 <p class="lead"><i class="fas fa-pencil-alt"></i> {{$post->created_at}}</p>
                 <hr class="my-4">
                 <p>{!! $post->description!!}</p>
-                <img src="/{!! $post->img!!}" alt="Image placeholder">
+                <img class="img-small" src="/{!! $post->img!!}" alt="Image placeholder">
             </div>
 
     <div class="row">

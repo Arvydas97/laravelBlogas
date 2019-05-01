@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{!! asset('fonts/fontawesome/css/font-awesome.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('fonts/flaticon/font/flaticon.css') !!}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- Theme Style -->
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/custom.css') !!}">

@@ -11,3 +11,7 @@
     background-color: #f8f8f8;
 
 }
+.img-small{
+    max-height: 350px!important;
+    max-width: 350px!important;
+}

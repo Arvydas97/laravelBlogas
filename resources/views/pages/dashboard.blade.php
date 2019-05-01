@@ -16,6 +16,7 @@
                     <div class="container">
                         <h1 class="display-4">{{$post->title}}</h1>
                         <p class="lead">{!! $post->description!!}</p>
+                        <a href="/post/{{$post->id}}" class="">More</a>
                     </div>
                 </div>
         @endforeach
